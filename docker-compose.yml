@@ -6,16 +6,12 @@ services:
     container_name: localstack
     ports:
       - "4566:4566"   # Main LocalStack port
-      - "4571:4571"   # DynamoDB
-      - "4576:4576"   # S3
       - "4577:4577"   # SQS
     environment:
-      - SERVICES=s3,dynamodb,sqs
+      - SERVICES=,sqs
       - DEBUG=1
       - DATA_DIR=/tmp/localstack/data
       - DEFAULT_REGION=us-east-1
-    volumes:
-      - "./localstack:/tmp/localstack"
 
 networks:
   default:
